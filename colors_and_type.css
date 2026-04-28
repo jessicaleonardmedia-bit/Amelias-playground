@@ -1,0 +1,265 @@
+/* =============================================================
+   ASCW — Amelia Slater Community Wellbeing
+   colors_and_type.css
+   Brand source: 0046ASCW Brand Guidelines (2025)
+   ============================================================= */
+
+/* Brand-supplied variable fonts — Montserrat (per Brand Guidelines page 13) */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype-variations'),
+       url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+       url('/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+:root {
+  /* ---------- Brand colors (exact, from official icon SVG fills) ---------- */
+  --ascw-pink:    #d7127b;   /* Magenta — primary signature */
+  --ascw-pink-mid:#dc89ba;   /* Mid pink — softer surfaces */
+  --ascw-yellow:  #fff570;   /* Buttercup — energy, accents */
+  --ascw-cream:   #fffaf3;   /* Off-white — base background */
+  --ascw-sage:    #8fc19c;   /* Soft green — calm, growth */
+  --ascw-lilac:   #ba94c4;   /* Lavender — care, neurodiversity */
+
+  /* ---------- Tints / shades (derived, brand-coherent) ---------- */
+  --ascw-pink-deep:   #a30d5d;   /* darker on hover */
+  --ascw-pink-soft:   #f7c8df;   /* tint, surfaces */
+  --ascw-yellow-deep: #f5d800;
+  --ascw-sage-deep:   #7fa572;
+  --ascw-lilac-deep:  #8e6aa0;
+  --ascw-lilac-soft:  #e2d3e8;
+  --ascw-sage-soft:   #d6e6cf;
+
+  /* ---------- Semantic surfaces ---------- */
+  --bg-base:        var(--ascw-cream);
+  --bg-elevated:    #ffffff;
+  --bg-pink:        var(--ascw-pink);
+  --bg-pink-tint:   var(--ascw-pink-soft);
+  --bg-sage:        var(--ascw-sage);
+  --bg-lilac:       var(--ascw-lilac);
+  --bg-yellow:      var(--ascw-yellow);
+
+  /* ---------- Text / foreground ---------- */
+  --fg-1:           #2a1226;   /* near-black plum on cream */
+  --fg-2:           #5a3d52;   /* secondary, muted */
+  --fg-3:           #8a7283;   /* tertiary, captions */
+  --fg-on-pink:     #fffaf3;   /* cream on magenta */
+  --fg-on-sage:     #fffaf3;
+  --fg-on-lilac:    #fffaf3;
+  --fg-on-yellow:   var(--ascw-pink);   /* pink on yellow per ASCW logomark */
+  --fg-brand:       var(--ascw-pink);   /* hero/headline accent */
+
+  /* ---------- Borders & dividers ---------- */
+  --border-soft:    #ebe1d6;
+  --border-strong:  #2a1226;
+
+  /* ---------- Radii — generous, friendly, never hard 90° on cards ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+  --radius-pill: 999px;
+  --radius-blob: 50% 50% 40% 60% / 60% 40% 60% 40%;  /* organic blob shape */
+
+  /* ---------- Shadows — soft, low-contrast, warm ---------- */
+  --shadow-1: 0 1px 2px rgba(42, 18, 38, 0.06);
+  --shadow-2: 0 4px 12px rgba(42, 18, 38, 0.08);
+  --shadow-3: 0 12px 28px rgba(42, 18, 38, 0.10);
+  --shadow-pink: 0 8px 24px rgba(215, 18, 123, 0.18);
+
+  /* ---------- Spacing scale (4-based) ---------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  /* ---------- Type ---------- */
+  --font-sans: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Montserrat', system-ui, -apple-system, sans-serif;
+
+  /* Weights actually used on collateral */
+  --w-light:    300;
+  --w-regular:  400;
+  --w-medium:   500;
+  --w-semibold: 600;
+  --w-bold:     700;
+  --w-black:    800;
+
+  /* Hero/display text in social tiles uses Light (300) for warmth, NOT bold */
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.08em;   /* small caps eyebrows, e.g. "CONSULTING" */
+  --tracking-x-wide: 0.16em;
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+}
+
+/* =============================================================
+   Base type rules (semantic helpers — apply via class)
+   ============================================================= */
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ascw-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--w-bold);
+  font-size: 13px;
+  letter-spacing: var(--tracking-x-wide);
+  text-transform: uppercase;
+  color: var(--ascw-pink);
+}
+
+.ascw-display {
+  font-family: var(--font-display);
+  font-weight: var(--w-light);          /* signature: Light, NOT Bold */
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ascw-lilac);             /* often lilac on cream, white on pink */
+  text-wrap: pretty;
+}
+
+.ascw-h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-light);
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.ascw-h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-medium);
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.ascw-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-semibold);
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.ascw-body {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--fg-1);
+}
+
+.ascw-body-lg {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: var(--w-regular);
+}
+
+.ascw-quote {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--fg-on-pink);   /* often used reversed on pink/sage */
+}
+
+.ascw-caps-small {
+  font-family: var(--font-sans);
+  font-weight: var(--w-bold);
+  font-size: 12px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.ascw-caption {
+  font-family: var(--font-sans);
+  font-weight: var(--w-regular);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--fg-3);
+}
+
+/* =============================================================
+   Surfaces
+   ============================================================= */
+.ascw-surface          { background: var(--bg-base); color: var(--fg-1); }
+.ascw-surface-pink     { background: var(--bg-pink); color: var(--fg-on-pink); }
+.ascw-surface-sage     { background: var(--bg-sage); color: var(--fg-on-sage); }
+.ascw-surface-lilac    { background: var(--bg-lilac); color: var(--fg-on-lilac); }
+.ascw-surface-yellow   { background: var(--bg-yellow); color: var(--fg-on-yellow); }
+.ascw-surface-cream    { background: var(--ascw-cream); color: var(--fg-1); }
+
+/* =============================================================
+   Buttons (per Book Now button on social tile #13)
+   Pill-shape, cream fill, pink uppercase bold label
+   ============================================================= */
+.ascw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  border: none;
+  font-family: var(--font-sans);
+  font-weight: var(--w-bold);
+  font-size: 14px;
+  letter-spacing: var(--tracking-x-wide);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+.ascw-btn:active { transform: scale(0.97); }
+
+.ascw-btn--primary {
+  background: var(--ascw-cream);
+  color: var(--ascw-pink);
+}
+.ascw-btn--primary:hover { background: #fff; box-shadow: var(--shadow-2); }
+
+.ascw-btn--pink {
+  background: var(--ascw-pink);
+  color: var(--ascw-cream);
+}
+.ascw-btn--pink:hover { background: var(--ascw-pink-deep); }
+
+.ascw-btn--ghost {
+  background: transparent;
+  color: var(--ascw-pink);
+  box-shadow: inset 0 0 0 2px var(--ascw-pink);
+}
+.ascw-btn--ghost:hover { background: var(--ascw-pink); color: var(--ascw-cream); }
