@@ -323,7 +323,7 @@ a:focus-visible, button:focus-visible {
 .hv-photo {
   background-image: url('assets/profile/profile-placeholder.jpg');
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 10%;
   border-radius: 28px;
 }
 .hv-pattern {
