@@ -301,7 +301,7 @@ a:focus-visible, button:focus-visible {
   .hero.v-pattern {
     background:
       linear-gradient(to right, var(--ascw-cream) 0%, var(--ascw-cream) 52%, rgba(255,250,243,0) 62%),
-      url('assets/patterns/pattern-large.png');
+      url('assets/patterns/pattern-large.svg');
     background-size: auto, 760px;
     background-repeat: no-repeat, repeat;
     background-position: left top, right top;
@@ -327,7 +327,7 @@ a:focus-visible, button:focus-visible {
   border-radius: 28px;
 }
 .hv-pattern {
-  background-image: url('assets/patterns/pattern-single.png');
+  background-image: url('assets/patterns/pattern-single.svg');
   background-size: cover;
   background-position: center;
   border-radius: 28px;
@@ -361,7 +361,7 @@ a:focus-visible, button:focus-visible {
   .pattern-strip { grid-template-columns: repeat(3, 1fr); height: 90px; }
 }
 .pattern-tile {
-  background-image: url('assets/patterns/pattern-single.png');
+  background-image: url('assets/patterns/pattern-single.svg');
   background-size: cover;
   background-position: center;
 }
@@ -485,7 +485,7 @@ a:focus-visible, button:focus-visible {
 
 .approach-pattern-l, .approach-pattern-r {
   position: absolute;
-  background-image: url('assets/patterns/pattern-single.png');
+  background-image: url('assets/patterns/pattern-single.svg');
   background-size: cover;
   background-position: center;
   border-radius: var(--radius-lg);
@@ -616,7 +616,7 @@ a:focus-visible, button:focus-visible {
 .cta-band {
   position: relative;
   padding: 120px 0;
-  background-image: url('assets/patterns/pattern-large.png');
+  background-image: url('assets/patterns/pattern-large.svg');
   background-size: 600px;
   background-repeat: repeat;
   overflow: hidden;
@@ -646,7 +646,7 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background-image: url('assets/patterns/pattern-large.png');
+  background-image: url('assets/patterns/pattern-large.svg');
   background-size: 600px;
   background-repeat: repeat;
   padding: 0 0 48px;
