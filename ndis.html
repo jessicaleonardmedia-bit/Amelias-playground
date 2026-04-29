@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NDIS Therapeutic Support | Counselling for Self and Plan-Managed Participants | Amelia Slater</title>
+  <meta name="description" content="NDIS therapeutic counselling and capacity building. Trauma-informed, neurodivergent-affirming social work for self-managed and plan-managed participants. Telehealth Australia-wide.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* NDIS audience picker styles */
+    .audience-picker {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .audience-picker h2 {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      margin: 0 0 0.5rem;
+    }
+    .audience-picker p {
+      color: var(--fg-2);
+      font-size: 1.0625rem;
+      margin: 0 0 2rem;
+    }
+    .audience-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 700px) {
+      .audience-options { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .audience-card {
+      background: var(--bg-elevated);
+      border: 2px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      cursor: pointer;
+      transition: border-color var(--dur-base) var(--ease-out),
+                  transform var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out);
+      text-align: left;
+    }
+    .audience-card:hover {
+      border-color: var(--ascw-pink);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-2);
+    }
+    .audience-card .eyebrow {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .audience-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.5rem;
+      color: var(--fg-1);
+    }
+    .audience-card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--fg-2);
+      margin: 0;
+    }
+    .audience-section { display: none; }
+    body.show-participant .audience-participant,
+    body.show-referrer .audience-referrer,
+    body.show-both .audience-participant,
+    body.show-both .audience-referrer {
+      display: block;
+    }
+    body.show-participant .audience-picker-wrap,
+    body.show-referrer .audience-picker-wrap,
+    body.show-both .audience-picker-wrap {
+      display: none;
+    }
+    .switch-audience {
+      text-align: center;
+      padding: 1rem 0 2rem;
+    }
+    .switch-audience button {
+      background: transparent;
+      border: 0;
+      color: var(--ascw-pink-deep);
+      font-size: 0.875rem;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+    .switch-audience button:hover { color: var(--ascw-pink); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="counselling.html">Counselling</a>
+        <a href="ndis.html" aria-current="page">NDIS</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="index.html#contact" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="wrap hero-grid" style="grid-template-columns: 1fr; text-align: center;">
+        <div class="hero-text" style="margin: 0 auto;">
+          <span class="eyebrow">NDIS support</span>
+          <h1 class="h-display">NDIS therapeutic support <em>across Australia</em>.</h1>
+          <p class="lede" style="margin-left: auto; margin-right: auto;">Trauma-informed, neurodivergent-affirming therapeutic support for self-managed and plan-managed NDIS participants. Telehealth Australia-wide, in person from Numurkah, Victoria.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="audience-picker-wrap">
+      <div class="audience-picker">
+        <span class="eyebrow">Choose your view</span>
+        <h2>What brings you here?</h2>
+        <p>So I can show you what's most useful.</p>
+        <div class="audience-options">
+          <button class="audience-card" data-audience="participant">
+            <span class="eyebrow">For participants</span>
+            <h3>Looking for support</h3>
+            <p>I'm an NDIS participant or thinking about supports for myself.</p>
+          </button>
+          <button class="audience-card" data-audience="referrer">
+            <span class="eyebrow">For referrers</span>
+            <h3>Making a referral</h3>
+            <p>I'm a support coordinator, allied health professional, or other referrer.</p>
+          </button>
+          <button class="audience-card" data-audience="both">
+            <span class="eyebrow">All info</span>
+            <h3>Show both</h3>
+            <p>I want to see everything on this page.</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <section class="audience-section audience-participant section">
+      <div class="wrap">
+
+        <header class="section-header">
+          <div>
+            <span class="eyebrow">For participants</span>
+            <h2 class="h-section">NDIS support that actually fits your life.</h2>
+          </div>
+          <p class="lede">I work with self-managed and plan-managed NDIS participants across Australia. The NDIS can feel overwhelming to navigate, especially when you're already dealing with a lot. I'll work with you at your pace and make sure the support you receive actually reflects your goals.</p>
+        </header>
+
+        <div class="svc-grid">
+
+          <article class="svc s-cream">
+            <span class="eyebrow">Counselling</span>
+            <h3>Therapeutic counselling</h3>
+            <p>Individual counselling sessions focused on mental health, trauma, neurodivergence, and the challenges of daily life. Sessions are tailored to your goals and delivered in a way that feels safe and accessible to you. Available via telehealth or in person.</p>
+          </article>
+
+          <article class="svc s-sage">
+            <span class="eyebrow">Assessments</span>
+            <h3>Functional capacity assessment</h3>
+            <p>A Functional Capacity Assessment looks at how your disability affects your daily life and what supports you need. I'm trained to carry out functional capacity, bio-psycho-social, adaptive living skills, and mental health assessments. These assessments can support your NDIS planning and reviews.</p>
+          </article>
+
+          <article class="svc s-lilac">
+            <span class="eyebrow">Access and advocacy</span>
+            <h3>NDIS access and advocacy</h3>
+            <p>If you're not yet on the NDIS and want to explore whether you're eligible, I can help. I can also support you to understand your plan, prepare for reviews, and advocate for the supports you need. Navigating the NDIS shouldn't have to be done alone.</p>
+          </article>
+
+          <article class="svc s-yellow">
+            <span class="eyebrow">Behaviour support</span>
+            <h3>Behaviour support</h3>
+            <p>Support to understand and address behaviours that are affecting your quality of life or relationships. I use a strengths-based, trauma-informed approach that focuses on what's driving behaviour rather than simply managing it.</p>
+          </article>
+
+          <article class="svc s-cream">
+            <span class="eyebrow">Capacity building</span>
+            <h3>Coaching and capacity building</h3>
+            <p>Practical support to build skills, confidence, and independence in areas that matter to you, including daily living, communication, relationships, and navigating systems like education, employment, and health.</p>
+          </article>
+
+        </div>
+
+        <p style="font-size: 0.875rem; color: var(--fg-2); margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-soft);">Services are billed under Therapeutic Supports (Item 15_043_0128_1_3) at the current NDIS rate, in accordance with the NDIS Pricing Arrangements and Price Limits.</p>
+
+      </div>
+    </section>
+
+    <section class="audience-section audience-referrer section">
+      <div class="wrap">
+
+        <header class="section-header">
+          <div>
+            <span class="eyebrow">For support coordinators and allied health professionals</span>
+            <h2 class="h-section">Referring a participant.</h2>
+          </div>
+          <p class="lede">Practical information about scope, line items, and how to make a referral. If anything you need isn't here, contact me directly to discuss.</p>
+        </header>
+
+        <div class="svc-grid">
+
+          <article class="svc s-cream">
+            <span class="eyebrow">Eligibility</span>
+            <h3>Plan management</h3>
+            <p>I work with self-managed and plan-managed participants. I'm not currently registered for NDIA-managed participants.</p>
+          </article>
+
+          <article class="svc s-sage">
+            <span class="eyebrow">Billing</span>
+            <h3>Line item and rate</h3>
+            <p>Services are billed under Therapeutic Supports, Item 15_043_0128_1_3 at the current NDIS rate, in accordance with the NDIS Pricing Arrangements and Price Limits.</p>
+          </article>
+
+          <article class="svc s-lilac">
+            <span class="eyebrow">Invoicing</span>
+            <h3>Plan manager liaison</h3>
+            <p>Invoices are provided in a format that meets NDIS requirements. I'm happy to liaise directly with plan managers to streamline the process.</p>
+          </article>
+
+          <article class="svc s-yellow">
+            <span class="eyebrow">Assessments</span>
+            <h3>Available assessments</h3>
+            <p>I'm available for functional capacity, bio-psycho-social, adaptive living skills, and mental health assessments. If you're unsure whether an assessment is appropriate for your participant, contact me to discuss.</p>
+          </article>
+
+          <article class="svc s-cream">
+            <span class="eyebrow">How to refer</span>
+            <h3>Making a referral</h3>
+            <p>Use the referral form or contact me directly by phone or email. I aim to respond to all referrals within two business days.</p>
+            <a href="index.html#contact" class="svc-cta">Make a referral <span class="arr">&rarr;</span></a>
+          </article>
+
+          <article class="svc s-sage">
+            <span class="eyebrow">Scope of practice</span>
+            <h3>Who I work with</h3>
+            <p>Trauma therapy for neurodivergent women, gender-diverse people, and other adults. I have particular experience with neurodivergence, complex trauma, LGBTQIA+ populations, and rural and regional communities.</p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <div class="switch-audience">
+      <button id="switch-audience-btn">Switch view</button>
+    </div>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <span class="eyebrow">Get started</span>
+        <h2 class="h-section">Book a session or <em>make a referral</em>.</h2>
+        <div class="actions">
+          <a href="index.html#contact" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+          <a href="index.html#contact" class="btn btn-ghost">Make a referral <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+
+      <aside class="crisis-block" aria-label="Crisis support resources">
+        <h2>If you need support right now</h2>
+        <ul>
+          <li><a href="tel:000">Emergency: 000</a></li>
+          <li><a href="tel:131114">Lifeline: 13 11 14</a></li>
+          <li><a href="tel:139276">13YARN: 13 92 76</a></li>
+          <li><a href="tel:1800551800">Kids Helpline: 1800 55 1800</a></li>
+        </ul>
+      </aside>
+
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+          <p>Trauma-informed, neurodivergent-affirming social work and counselling. Based in Numurkah, Victoria. Telehealth available Australia-wide.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="counselling.html">Counselling</a></li>
+            <li><a href="#">EMDR</a></li>
+            <li><a href="ndis.html">NDIS support</a></li>
+            <li><a href="ndis.html">For referrers</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Practice</h5>
+          <ul>
+            <li><a href="about.html">About Amelia</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Child safe policy</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:0422035204">0422 035 204</a></li>
+            <li><a href="mailto:amelia@ameliaslater.com">amelia@ameliaslater.com</a></li>
+            <li>PO Box 70<br>Numurkah VIC 3636</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <div class="ack">
+          Amelia Slater Community Wellbeing operates on Yorta Yorta Country. We acknowledge the Yorta Yorta people as the Traditional Custodians of these lands and pay our respects to Elders past and present.
+        </div>
+        <div>
+          ABN placeholder &middot; AASW member placeholder &middot; &copy; <span id="year"></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="controls-toggle" aria-label="Open accessibility controls" aria-expanded="false" aria-controls="controls-panel" id="controls-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg>
+  </button>
+
+  <div class="controls-panel" id="controls-panel" role="dialog" aria-label="Accessibility and reading controls">
+    <h2>Reading controls</h2>
+    <div class="control-group">
+      <label for="font-size-slider">Text size</label>
+      <input type="range" id="font-size-slider" min="14" max="26" step="1" value="16">
+    </div>
+    <div class="control-group">
+      <label>Background colour</label>
+      <div class="bg-options" role="group">
+        <button data-bg="cream" aria-pressed="true">Cream</button>
+        <button data-bg="sage">Sage</button>
+        <button data-bg="lavender">Lavender</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Font</label>
+      <div class="font-options" role="group">
+        <button data-font="default" aria-pressed="true">
+          <span class="preview">Aa</span>
+          <span class="label">Default</span>
+        </button>
+        <button data-font="atkinson">
+          <span class="preview">Aa</span>
+          <span class="label">Atkinson</span>
+        </button>
+        <button data-font="opendyslexic">
+          <span class="preview">Aa</span>
+          <span class="label">Dyslexic</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="toggle-row">
+        <span>High contrast</span>
+        <label class="switch"><input type="checkbox" id="toggle-contrast"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reduce motion</span>
+        <label class="switch"><input type="checkbox" id="toggle-motion"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reading mode</span>
+        <label class="switch"><input type="checkbox" id="toggle-reading"><span class="slider"></span></label>
+      </div>
+    </div>
+    <button class="reset-btn" id="reset-btn">Reset all to default</button>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    /* NDIS audience picker */
+    (function() {
+      var STORAGE_KEY = 'ascw-ndis-audience';
+      var body = document.body;
+      var savedAudience = null;
+      try { savedAudience = localStorage.getItem(STORAGE_KEY); } catch(e) {}
+
+      function applyAudience(audience) {
+        body.classList.remove('show-participant', 'show-referrer', 'show-both');
+        if (audience) {
+          body.classList.add('show-' + audience);
+          try { localStorage.setItem(STORAGE_KEY, audience); } catch(e) {}
+        }
+      }
+
+      function clearAudience() {
+        body.classList.remove('show-participant', 'show-referrer', 'show-both');
+        try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+      }
+
+      if (savedAudience) applyAudience(savedAudience);
+
+      document.querySelectorAll('.audience-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          applyAudience(card.dataset.audience);
+          window.scrollTo({ top: card.closest('main').offsetTop, behavior: 'smooth' });
+        });
+      });
+
+      var switchBtn = document.getElementById('switch-audience-btn');
+      if (switchBtn) {
+        switchBtn.addEventListener('click', function() {
+          clearAudience();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
