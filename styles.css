@@ -647,9 +647,9 @@ a:focus-visible, button:focus-visible {
 /* ---------- Footer ---------- */
 .site-footer {
   background-image: url('assets/patterns/pattern-large.svg');
-  background-size: 600px;
+  background-size: 400px;
   background-repeat: repeat;
-  padding: 0 0 48px;
+  padding: 80px 0 48px;
   position: relative;
 }
 .site-footer .wrap { padding-top: 48px; padding-bottom: 48px; }
