@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Amelia Slater | Counselling, EMDR and NDIS Support | Telehealth Australia-wide</title>
+  <meta name="description" content="Contact Amelia Slater to book a counselling or EMDR session via telehealth. Trauma-informed, neurodivergent-affirming support for adults across Australia.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Contact page layout */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    @media (min-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 4rem; }
+    }
+    .contact-details {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-1);
+    }
+    .contact-details h3 {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ascw-pink-deep);
+      margin: 0 0 0.5rem;
+    }
+    .contact-details .item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .contact-details .item:last-child { border-bottom: 0; }
+    .contact-details .item:first-child { padding-top: 0; }
+    .contact-details a {
+      color: var(--fg-1);
+      font-size: 1.125rem;
+      font-weight: 500;
+      transition: color var(--dur-base) var(--ease-out);
+    }
+    .contact-details a:hover { color: var(--ascw-pink); }
+    .contact-details .static {
+      font-size: 1.125rem;
+      color: var(--fg-1);
+    }
+
+    .contact-form-block h3 {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ascw-pink-deep);
+      margin: 0 0 0.5rem;
+    }
+    .contact-form-block h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0 0 1.5rem;
+    }
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+    .contact-form label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--fg-2);
+      margin-bottom: 0.4rem;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font: inherit;
+      font-size: 1rem;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      color: var(--fg-1);
+      box-sizing: border-box;
+      transition: border-color var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out);
+    }
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 0;
+      border-color: var(--ascw-pink);
+      box-shadow: 0 0 0 3px rgba(215, 18, 123, 0.15);
+    }
+    .contact-form .form-actions {
+      margin-top: 0.5rem;
+    }
+
+    .quick-links {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .quick-links h4 {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ascw-pink-deep);
+      margin: 0 0 1rem;
+    }
+    .quick-links-grid {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      color: var(--fg-1);
+      font-weight: 500;
+      transition: border-color var(--dur-base) var(--ease-out),
+                  transform var(--dur-base) var(--ease-out);
+    }
+    .quick-links a:hover {
+      border-color: var(--ascw-pink);
+      transform: translateX(3px);
+    }
+    .quick-links a .arr {
+      margin-left: auto;
+      color: var(--ascw-pink);
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="counselling.html">Counselling</a>
+        <a href="ndis.html">NDIS</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="wrap hero-grid" style="grid-template-columns: 1fr; text-align: center;">
+        <div class="hero-text" style="margin: 0 auto;">
+          <span class="eyebrow">Contact</span>
+          <h1 class="h-display">Get <em>in touch</em>.</h1>
+          <p class="lede" style="margin-left: auto; margin-right: auto;">Whether you're ready to book a session, want to ask a question first, or are looking to make a referral, you're welcome to reach out. No pressure, no obligation, just a conversation to see if we're the right fit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+
+        <div class="contact-grid">
+
+          <aside class="contact-details">
+            <span class="eyebrow">Contact details</span>
+            <h2 style="font-size: 1.5rem; font-weight: 500; margin: 0.5rem 0 1.5rem;">Reach me directly.</h2>
+
+            <div class="item">
+              <h3>Phone</h3>
+              <a href="tel:0422035204">0422 035 204</a>
+            </div>
+
+            <div class="item">
+              <h3>Email</h3>
+              <a href="mailto:amelia@ameliaslater.com">amelia@ameliaslater.com</a><br>
+              <a href="mailto:admin@ameliaslater.com">admin@ameliaslater.com</a>
+            </div>
+
+            <div class="item">
+              <h3>Postal address</h3>
+              <span class="static">PO Box 70<br>Numurkah VIC 3636</span>
+            </div>
+
+            <div class="item">
+              <h3>Response time</h3>
+              <span class="static">I aim to respond to all enquiries within two business days.</span>
+            </div>
+
+            <div class="quick-links">
+              <h4>Quick links</h4>
+              <div class="quick-links-grid">
+                <a href="#">Book a session directly <span class="arr">&rarr;</span></a>
+                <a href="#">Make a formal referral <span class="arr">&rarr;</span></a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="contact-form-block">
+            <span class="eyebrow">Send a message</span>
+            <h2>I'd love to hear from you.</h2>
+            <p style="color: var(--fg-2); margin: 0 0 2rem;">Fill in the form below and I'll get back to you within two business days. If your enquiry is more urgent, give me a call directly.</p>
+
+            <form class="contact-form" name="contact" method="POST" data-netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact">
+              <p style="display: none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+              <div>
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+
+              <div>
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div>
+                <label for="phone">Phone (optional)</label>
+                <input type="text" id="phone" name="phone">
+              </div>
+
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send message <span class="arr">&rarr;</span></button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <span class="eyebrow">Need support right now?</span>
+        <h2 class="h-section">Crisis support is <em>always available</em>.</h2>
+        <p style="max-width: 36ch; margin: 1rem auto 1.5rem; color: var(--fg-2);">If you're in crisis or need immediate support, please use one of the resources below. They're available 24 hours a day.</p>
+        <div class="actions">
+          <a href="tel:000" class="btn btn-primary">Emergency: 000 <span class="arr">&rarr;</span></a>
+          <a href="tel:131114" class="btn btn-ghost">Lifeline: 13 11 14 <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+
+      <aside class="crisis-block" aria-label="Crisis support resources">
+        <h2>If you need support right now</h2>
+        <ul>
+          <li><a href="tel:000">Emergency: 000</a></li>
+          <li><a href="tel:131114">Lifeline: 13 11 14</a></li>
+          <li><a href="tel:139276">13YARN: 13 92 76</a></li>
+          <li><a href="tel:1800551800">Kids Helpline: 1800 55 1800</a></li>
+        </ul>
+      </aside>
+
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+          <p>Trauma-informed, neurodivergent-affirming social work and counselling. Based in Numurkah, Victoria. Telehealth available Australia-wide.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="counselling.html">Counselling</a></li>
+            <li><a href="#">EMDR</a></li>
+            <li><a href="ndis.html">NDIS support</a></li>
+            <li><a href="ndis.html">For referrers</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Practice</h5>
+          <ul>
+            <li><a href="about.html">About Amelia</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Child safe policy</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:0422035204">0422 035 204</a></li>
+            <li><a href="mailto:amelia@ameliaslater.com">amelia@ameliaslater.com</a></li>
+            <li>PO Box 70<br>Numurkah VIC 3636</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <div class="ack">
+          Amelia Slater Community Wellbeing operates on Yorta Yorta Country. We acknowledge the Yorta Yorta people as the Traditional Custodians of these lands and pay our respects to Elders past and present.
+        </div>
+        <div>
+          ABN placeholder &middot; AASW member placeholder &middot; &copy; <span id="year"></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="controls-toggle" aria-label="Open accessibility controls" aria-expanded="false" aria-controls="controls-panel" id="controls-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg>
+  </button>
+
+  <div class="controls-panel" id="controls-panel" role="dialog" aria-label="Accessibility and reading controls">
+    <h2>Reading controls</h2>
+    <div class="control-group">
+      <label for="font-size-slider">Text size</label>
+      <input type="range" id="font-size-slider" min="14" max="26" step="1" value="16">
+    </div>
+    <div class="control-group">
+      <label>Background colour</label>
+      <div class="bg-options" role="group">
+        <button data-bg="cream" aria-pressed="true">Cream</button>
+        <button data-bg="sage">Sage</button>
+        <button data-bg="lavender">Lavender</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Font</label>
+      <div class="font-options" role="group">
+        <button data-font="default" aria-pressed="true">
+          <span class="preview">Aa</span>
+          <span class="label">Default</span>
+        </button>
+        <button data-font="atkinson">
+          <span class="preview">Aa</span>
+          <span class="label">Atkinson</span>
+        </button>
+        <button data-font="opendyslexic">
+          <span class="preview">Aa</span>
+          <span class="label">Dyslexic</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="toggle-row">
+        <span>High contrast</span>
+        <label class="switch"><input type="checkbox" id="toggle-contrast"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reduce motion</span>
+        <label class="switch"><input type="checkbox" id="toggle-motion"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reading mode</span>
+        <label class="switch"><input type="checkbox" id="toggle-reading"><span class="slider"></span></label>
+      </div>
+    </div>
+    <button class="reset-btn" id="reset-btn">Reset all to default</button>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
