@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Referral Form (Version A) | Amelia Slater Community Wellbeing</title>
+  <meta name="description" content="Referral form for counselling, EMDR, and NDIS support. Anyone can refer, including yourself. Telehealth Australia-wide.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Form layout */
+    .ref-page { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .form-section {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-1);
+    }
+    .form-section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.5rem;
+      color: var(--fg-1);
+    }
+    .form-section p.section-intro {
+      color: var(--fg-2);
+      margin: 0 0 1.5rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    .field { margin-bottom: 1.25rem; }
+    .field:last-child { margin-bottom: 0; }
+    .field label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--fg-1);
+      margin-bottom: 0.5rem;
+    }
+    .field .hint {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--fg-2);
+      font-weight: 400;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font: inherit;
+      font-size: 1rem;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      color: var(--fg-1);
+      box-sizing: border-box;
+      transition: border-color var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out);
+    }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: 0;
+      border-color: var(--ascw-pink);
+      box-shadow: 0 0 0 3px rgba(215, 18, 123, 0.15);
+    }
+
+    .radio-group, .checkbox-group { display: grid; gap: 0.5rem; }
+    .radio-group label, .checkbox-group label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 400;
+      transition: border-color var(--dur-base) var(--ease-out),
+                  background var(--dur-base) var(--ease-out);
+    }
+    .radio-group label:hover, .checkbox-group label:hover {
+      border-color: var(--ascw-pink);
+      background: var(--ascw-cream);
+    }
+    .radio-group input[type="radio"]:checked + span,
+    .checkbox-group input[type="checkbox"]:checked + span {
+      font-weight: 500;
+    }
+    .radio-group label:has(input:checked),
+    .checkbox-group label:has(input:checked) {
+      border-color: var(--ascw-pink);
+      background: var(--ascw-cream);
+    }
+    .radio-group input, .checkbox-group input {
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+      accent-color: var(--ascw-pink);
+    }
+
+    /* Conditional sections start hidden */
+    .conditional { display: none; }
+    .conditional.show { display: block; }
+
+    .ndia-warning {
+      padding: 1.25rem 1.5rem;
+      background: var(--ascw-pink);
+      color: var(--ascw-cream);
+      border-radius: var(--radius-md);
+      margin: 1rem 0;
+      box-shadow: var(--shadow-pink);
+    }
+    .ndia-warning h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+    .ndia-warning p {
+      margin: 0 0 0.75rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+    .ndia-warning a.email-btn {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      background: var(--ascw-cream);
+      color: var(--ascw-pink-deep);
+      text-decoration: none;
+      border-radius: var(--radius-pill);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background var(--dur-base) var(--ease-out);
+    }
+    .ndia-warning a.email-btn:hover { background: #fff; }
+
+    .form-actions {
+      text-align: center;
+      padding: 2rem 0 4rem;
+    }
+
+    .form-version-banner {
+      background: var(--ascw-yellow);
+      color: var(--fg-1);
+      padding: 0.75rem 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .form-version-banner a {
+      color: var(--ascw-pink-deep);
+      text-decoration: underline;
+      font-weight: 700;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="counselling.html">Counselling</a>
+        <a href="ndis.html">NDIS</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="form-version-banner">
+    <strong>Version A:</strong> single form, conditional logic
+    <a href="referral-b.html">Try Version B</a>
+  </div>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="wrap hero-grid" style="grid-template-columns: 1fr; text-align: center;">
+        <div class="hero-text" style="margin: 0 auto;">
+          <span class="eyebrow">Referral form</span>
+          <h1 class="h-display">Make a <em>referral</em>.</h1>
+          <p class="lede" style="margin-left: auto; margin-right: auto;">Anyone can make a referral, including yourself. You don't need to be referred by a doctor or another professional. I'll be in touch within two business days.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="ref-page">
+
+        <form id="referral-form" name="referral" method="POST">
+
+          <!-- ========== Section 1: Who is referring? ========== -->
+          <div class="form-section">
+            <h2>Who is making this referral?</h2>
+            <p class="section-intro">This helps me understand who I'm talking to and what's most useful to ask next.</p>
+
+            <div class="field">
+              <label>Are you referring yourself or someone else?</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="referral_type" value="self" required>
+                  <span>I'm referring myself</span>
+                </label>
+                <label>
+                  <input type="radio" name="referral_type" value="other" required>
+                  <span>I'm referring someone else</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field conditional" data-show-when="referral_type=other">
+              <label>Are you referring as a personal contact or a professional?</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="referrer_capacity" value="personal">
+                  <span>Personal (family, friend, partner, carer)</span>
+                </label>
+                <label>
+                  <input type="radio" name="referrer_capacity" value="professional">
+                  <span>Professional (GP, support coordinator, allied health, school)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== Section 2: Referrer details ========== -->
+          <div class="form-section conditional" data-show-when="referral_type=other">
+            <h2>Your details</h2>
+            <p class="section-intro">So I know who you are and how to reach you.</p>
+
+            <div class="field">
+              <label for="ref_first">First name</label>
+              <input type="text" id="ref_first" name="referrer_first_name">
+            </div>
+
+            <div class="field">
+              <label for="ref_last">Last name</label>
+              <input type="text" id="ref_last" name="referrer_last_name">
+            </div>
+
+            <div class="field">
+              <label for="ref_email">Email address</label>
+              <input type="email" id="ref_email" name="referrer_email">
+            </div>
+
+            <div class="field">
+              <label for="ref_phone">Phone</label>
+              <input type="tel" id="ref_phone" name="referrer_phone">
+            </div>
+
+            <!-- Personal-only field -->
+            <div class="field conditional" data-show-when="referrer_capacity=personal">
+              <label for="ref_relation">Your relationship to the person being referred</label>
+              <input type="text" id="ref_relation" name="referrer_relation" placeholder="e.g. parent, partner, friend">
+            </div>
+
+            <!-- Professional-only fields -->
+            <div class="field conditional" data-show-when="referrer_capacity=professional">
+              <label for="ref_org">Organisation</label>
+              <span class="hint">Clinic, school, support coordination service, hospital, etc.</span>
+              <input type="text" id="ref_org" name="referrer_organisation">
+            </div>
+
+            <div class="field conditional" data-show-when="referrer_capacity=professional">
+              <label for="ref_role">Your role or position</label>
+              <input type="text" id="ref_role" name="referrer_role" placeholder="e.g. GP, Support Coordinator, Wellbeing Coordinator">
+            </div>
+          </div>
+
+          <!-- ========== Section 3: Person being referred ========== -->
+          <div class="form-section">
+            <h2 data-self-text="Your details" data-other-text="Details of the person being referred">Your details</h2>
+            <p class="section-intro" data-self-text="So I know how to reach you." data-other-text="The person you're referring.">So I know how to reach you.</p>
+
+            <div class="field">
+              <label for="p_first">First name</label>
+              <input type="text" id="p_first" name="person_first_name" required>
+            </div>
+
+            <div class="field">
+              <label for="p_last">Last name</label>
+              <input type="text" id="p_last" name="person_last_name" required>
+            </div>
+
+            <div class="field">
+              <label for="p_email">Email address</label>
+              <input type="email" id="p_email" name="person_email" required>
+            </div>
+
+            <div class="field">
+              <label for="p_phone">Phone</label>
+              <input type="tel" id="p_phone" name="person_phone">
+            </div>
+          </div>
+
+          <!-- ========== Section 4: Funding ========== -->
+          <div class="form-section">
+            <h2>Funding</h2>
+            <p class="section-intro" data-self-text="Are you looking to use NDIS funding for your sessions?" data-other-text="Is this referral for NDIS-funded support?">Are you looking to use NDIS funding for your sessions?</p>
+
+            <div class="field">
+              <label>Is this an NDIS referral?</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="funding_type" value="ndis" required>
+                  <span>Yes, NDIS-funded</span>
+                </label>
+                <label>
+                  <input type="radio" name="funding_type" value="private" required>
+                  <span>No, privately funded or other</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field conditional" data-show-when="funding_type=ndis">
+              <label>How is the NDIS plan managed?</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="plan_management" value="self_managed">
+                  <span>Self-managed</span>
+                </label>
+                <label>
+                  <input type="radio" name="plan_management" value="plan_managed">
+                  <span>Plan-managed</span>
+                </label>
+                <label>
+                  <input type="radio" name="plan_management" value="ndia_managed">
+                  <span>NDIA-managed (Agency-managed)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- NDIA-managed warning -->
+            <div class="conditional ndia-warning" data-show-when="plan_management=ndia_managed">
+              <h3>I can't currently support NDIA-managed clients</h3>
+              <p>I'm not a registered NDIS provider, which means I can only support clients whose plans are Self-managed or Plan-managed.</p>
+              <p>If you'd like, email me and I'll suggest some other practitioners who might be a good fit.</p>
+              <a href="mailto:admin@ameliaslater.com?subject=NDIA-managed referral request" class="email-btn">Email Amelia</a>
+            </div>
+
+            <div class="field conditional" data-show-when="funding_type=ndis,plan_management!=ndia_managed">
+              <label for="ndis_number">NDIS Participant Number</label>
+              <span class="hint">Optional. Leave blank if not yet known.</span>
+              <input type="text" id="ndis_number" name="ndis_number">
+            </div>
+
+            <div class="field conditional" data-show-when="funding_type=ndis,plan_management=plan_managed">
+              <label for="plan_manager_name">Plan Manager name</label>
+              <input type="text" id="plan_manager_name" name="plan_manager_name">
+            </div>
+
+            <div class="field conditional" data-show-when="funding_type=ndis,plan_management=plan_managed">
+              <label for="plan_manager_email">Plan Manager email</label>
+              <input type="email" id="plan_manager_email" name="plan_manager_email">
+            </div>
+          </div>
+
+          <!-- ========== Section 5: Services ========== -->
+          <div class="form-section">
+            <h2>What kind of support are you looking for?</h2>
+            <p class="section-intro">Tick all that apply. We'll work out the specifics together.</p>
+
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="services" value="counselling"><span>Counselling</span></label>
+              <label><input type="checkbox" name="services" value="emdr"><span>EMDR therapy</span></label>
+              <label><input type="checkbox" name="services" value="trauma"><span>Trauma therapy</span></label>
+              <label><input type="checkbox" name="services" value="adhd"><span>ADHD coaching and support</span></label>
+              <label><input type="checkbox" name="services" value="autism"><span>Autism coaching and support</span></label>
+              <label><input type="checkbox" name="services" value="neurodivergent"><span>Neurodivergent support</span></label>
+              <label><input type="checkbox" name="services" value="lgbtqia"><span>LGBTQIA+ support</span></label>
+              <label><input type="checkbox" name="services" value="ndis"><span>NDIS therapeutic supports</span></label>
+              <label><input type="checkbox" name="services" value="assessments"><span>Functional capacity assessment</span></label>
+              <label><input type="checkbox" name="services" value="other"><span>Other (tell me below)</span></label>
+            </div>
+
+            <div class="field" style="margin-top: 1.25rem;">
+              <label for="services_other">Anything specific you'd like me to know?</label>
+              <textarea id="services_other" name="services_other" placeholder="Optional. Tell me a bit about what's going on or what you're looking for."></textarea>
+            </div>
+          </div>
+
+          <!-- ========== Section 6: Consent (only for "other" referrals) ========== -->
+          <div class="form-section conditional" data-show-when="referral_type=other">
+            <h2>Consent</h2>
+            <p class="section-intro">Before I respond to a referral made on someone else's behalf, I need to know they've agreed to it.</p>
+
+            <div class="field">
+              <label>Has the person you're referring agreed to this referral?</label>
+              <div class="radio-group">
+                <label>
+                  <input type="radio" name="consent" value="yes">
+                  <span>Yes</span>
+                </label>
+                <label>
+                  <input type="radio" name="consent" value="no">
+                  <span>No, but I'm referring as a parent/guardian</span>
+                </label>
+                <label>
+                  <input type="radio" name="consent" value="unsure">
+                  <span>I'm not sure / I want to discuss</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- ========== Section 7: Contact preference ========== -->
+          <div class="form-section">
+            <h2>How should I get in touch?</h2>
+            <p class="section-intro">Pick whatever feels most accessible.</p>
+
+            <div class="field">
+              <div class="radio-group">
+                <label><input type="radio" name="contact_preference" value="email"><span>Email</span></label>
+                <label><input type="radio" name="contact_preference" value="phone"><span>Phone call</span></label>
+                <label><input type="radio" name="contact_preference" value="text"><span>Text message</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit referral <span class="arr">&rarr;</span></button>
+            <p style="margin-top: 1rem; font-size: 0.8125rem; color: var(--fg-2);">If anything urgent, please call directly: <a href="tel:0422035204" style="color: var(--ascw-pink-deep); text-decoration: underline;">0422 035 204</a></p>
+          </div>
+
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+
+      <aside class="crisis-block" aria-label="Crisis support resources">
+        <h2>If you need support right now</h2>
+        <ul>
+          <li><a href="tel:000">Emergency: 000</a></li>
+          <li><a href="tel:131114">Lifeline: 13 11 14</a></li>
+          <li><a href="tel:139276">13YARN: 13 92 76</a></li>
+          <li><a href="tel:1800551800">Kids Helpline: 1800 55 1800</a></li>
+        </ul>
+      </aside>
+
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+          <p>Trauma-informed, neurodivergent-affirming social work and counselling. Based in Numurkah, Victoria. Telehealth available Australia-wide.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="counselling.html">Counselling</a></li>
+            <li><a href="#">EMDR</a></li>
+            <li><a href="ndis.html">NDIS support</a></li>
+            <li><a href="ndis.html">For referrers</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Practice</h5>
+          <ul>
+            <li><a href="about.html">About Amelia</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Child safe policy</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:0422035204">0422 035 204</a></li>
+            <li><a href="mailto:amelia@ameliaslater.com">amelia@ameliaslater.com</a></li>
+            <li>PO Box 70<br>Numurkah VIC 3636</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <div class="ack">
+          Amelia Slater Community Wellbeing operates on Yorta Yorta Country. We acknowledge the Yorta Yorta people as the Traditional Custodians of these lands and pay our respects to Elders past and present.
+        </div>
+        <div>
+          ABN placeholder &middot; AASW member placeholder &middot; &copy; <span id="year"></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="controls-toggle" aria-label="Open accessibility controls" aria-expanded="false" aria-controls="controls-panel" id="controls-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg>
+  </button>
+
+  <div class="controls-panel" id="controls-panel" role="dialog" aria-label="Accessibility and reading controls">
+    <h2>Reading controls</h2>
+    <div class="control-group">
+      <label for="font-size-slider">Text size</label>
+      <input type="range" id="font-size-slider" min="14" max="26" step="1" value="16">
+    </div>
+    <div class="control-group">
+      <label>Background colour</label>
+      <div class="bg-options" role="group">
+        <button data-bg="cream" aria-pressed="true">Cream</button>
+        <button data-bg="sage">Sage</button>
+        <button data-bg="lavender">Lavender</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Font</label>
+      <div class="font-options" role="group">
+        <button data-font="default" aria-pressed="true">
+          <span class="preview">Aa</span>
+          <span class="label">Default</span>
+        </button>
+        <button data-font="atkinson">
+          <span class="preview">Aa</span>
+          <span class="label">Atkinson</span>
+        </button>
+        <button data-font="opendyslexic">
+          <span class="preview">Aa</span>
+          <span class="label">Dyslexic</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="toggle-row">
+        <span>High contrast</span>
+        <label class="switch"><input type="checkbox" id="toggle-contrast"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reduce motion</span>
+        <label class="switch"><input type="checkbox" id="toggle-motion"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reading mode</span>
+        <label class="switch"><input type="checkbox" id="toggle-reading"><span class="slider"></span></label>
+      </div>
+    </div>
+    <button class="reset-btn" id="reset-btn">Reset all to default</button>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    /* Conditional logic engine */
+    (function() {
+      var form = document.getElementById('referral-form');
+      if (!form) return;
+
+      function getFormState() {
+        var state = {};
+        form.querySelectorAll('input[type="radio"]:checked').forEach(function(input) {
+          state[input.name] = input.value;
+        });
+        return state;
+      }
+
+      function evaluateRule(rule, state) {
+        // rule is e.g. "referral_type=other" or "funding_type=ndis,plan_management!=ndia_managed"
+        var conditions = rule.split(',');
+        return conditions.every(function(condition) {
+          var negate = condition.indexOf('!=') !== -1;
+          var parts = condition.split(negate ? '!=' : '=');
+          var name = parts[0].trim();
+          var value = parts[1].trim();
+          var actual = state[name];
+          if (negate) return actual !== value;
+          return actual === value;
+        });
+      }
+
+      function applyConditionals() {
+        var state = getFormState();
+        document.querySelectorAll('.conditional').forEach(function(el) {
+          var rule = el.dataset.showWhen;
+          if (evaluateRule(rule, state)) {
+            el.classList.add('show');
+          } else {
+            el.classList.remove('show');
+            // Clear values in hidden fields
+            el.querySelectorAll('input, select, textarea').forEach(function(input) {
+              if (input.type === 'radio' || input.type === 'checkbox') {
+                input.checked = false;
+              } else {
+                input.value = '';
+              }
+            });
+          }
+        });
+
+        // Adapt copy based on self/other
+        var refType = state.referral_type;
+        document.querySelectorAll('[data-self-text][data-other-text]').forEach(function(el) {
+          if (refType === 'self') el.textContent = el.dataset.selfText;
+          else if (refType === 'other') el.textContent = el.dataset.otherText;
+        });
+      }
+
+      form.addEventListener('change', applyConditionals);
+      applyConditionals();
+    })();
+  </script>
+</body>
+</html>
