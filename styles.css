@@ -622,8 +622,8 @@ a:focus-visible, button:focus-visible {
 .cta-band::before {
   content: "";
   display: block;
-  height: 240px;
-  background-image: url('assets/patterns/pattern-large.svg');
+  height: 140px;
+  background-image: url('assets/patterns/pattern-single.svg');
   background-size: contain;
   background-repeat: repeat-x;
   background-position: center;
@@ -660,8 +660,8 @@ a:focus-visible, button:focus-visible {
 .site-footer::before {
   content: "";
   display: block;
-  height: 240px;
-  background-image: url('assets/patterns/pattern-large.svg');
+  height: 140px;
+  background-image: url('assets/patterns/pattern-single.svg');
   background-size: contain;
   background-repeat: repeat-x;
   background-position: center;
