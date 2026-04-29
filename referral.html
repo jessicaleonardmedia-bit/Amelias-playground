@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Referral Form | Amelia Slater Community Wellbeing</title>
+  <meta name="description" content="Referral form for counselling, EMDR, and NDIS support. Anyone can refer, including yourself. Telehealth Australia-wide.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background: #fffaf3;
+      color: #2a1226;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .loader {
+      max-width: 400px;
+    }
+    .loader p {
+      color: #5a3d52;
+      font-size: 0.875rem;
+      margin: 1rem 0 0;
+    }
+    .loader noscript {
+      display: block;
+      margin-top: 1.5rem;
+    }
+    .loader noscript a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #d7127b;
+      color: #fffaf3;
+      text-decoration: none;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0.5rem;
+    }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #f7c8df;
+      border-top-color: #d7127b;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    /* Smart default: pick the appropriate referral version based on viewport.
+       User override possible via ?v=a or ?v=b in URL.
+       Choice is remembered after first override via localStorage. */
+    (function() {
+      var STORAGE_KEY = 'ascw-referral-version-pref';
+      var params = new URLSearchParams(window.location.search);
+      var override = params.get('v');
+      var saved = null;
+      try { saved = localStorage.getItem(STORAGE_KEY); } catch(e) {}
+
+      var version;
+
+      if (override === 'a' || override === 'b') {
+        // Explicit URL override wins, save as preference
+        version = override;
+        try { localStorage.setItem(STORAGE_KEY, version); } catch(e) {}
+      } else if (saved === 'a' || saved === 'b') {
+        // Honour previously saved preference
+        version = saved;
+      } else {
+        // Smart default based on viewport width
+        version = window.innerWidth < 768 ? 'b' : 'a';
+      }
+
+      // Redirect to chosen version
+      window.location.replace('referral-' + version + '.html');
+    })();
+  </script>
+</head>
+<body>
+  <div class="loader">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Loading the referral form...</p>
+    <noscript>
+      <p>JavaScript appears to be disabled. Pick the version that suits you:</p>
+      <a href="referral-a.html">Desktop version</a>
+      <a href="referral-b.html">Mobile version</a>
+    </noscript>
+  </div>
+</body>
+</html>
