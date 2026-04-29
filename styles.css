@@ -615,11 +615,18 @@ a:focus-visible, button:focus-visible {
 /* ---------- CTA band ---------- */
 .cta-band {
   position: relative;
-  padding: 120px 0;
+  padding: 0 0 120px;
+  background: var(--ascw-pink-mid);
+  overflow: hidden;
+}
+.cta-band::before {
+  content: "";
+  display: block;
+  height: 120px;
   background-image: url('assets/patterns/pattern-large.svg');
   background-size: 600px;
-  background-repeat: repeat;
-  overflow: hidden;
+  background-repeat: repeat-x;
+  background-position: center;
 }
 .cta-inner {
   position: relative;
@@ -628,7 +635,7 @@ a:focus-visible, button:focus-visible {
   border-radius: var(--radius-xl);
   text-align: center;
   max-width: 720px;
-  margin: 0 auto;
+  margin: 60px auto 0;
   box-shadow: 0 30px 80px rgba(42, 18, 38, 0.18);
 }
 .cta-inner .h-section {
@@ -646,11 +653,18 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background-image: url('assets/patterns/pattern-large.svg');
-  background-size: 400px;
-  background-repeat: repeat;
-  padding: 80px 0 48px;
+  background: var(--ascw-lilac-soft);
+  padding: 0 0 48px;
   position: relative;
+}
+.site-footer::before {
+  content: "";
+  display: block;
+  height: 120px;
+  background-image: url('assets/patterns/pattern-large.svg');
+  background-size: 600px;
+  background-repeat: repeat-x;
+  background-position: center;
 }
 .site-footer .wrap { padding-top: 48px; padding-bottom: 48px; }
 .foot-grid {
