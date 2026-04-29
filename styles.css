@@ -106,21 +106,36 @@ body.bg-sage     { --bg-base: var(--ascw-sage-soft); }
 body.bg-lavender { --bg-base: var(--ascw-lilac-soft); }
 body.bg-cream    { --bg-base: var(--ascw-cream); }
 
+/* Tint cream surfaces when bg toggle is sage or lavender */
+body.bg-sage .about,
+body.bg-sage .hero { background: var(--ascw-sage-soft); }
+body.bg-lavender .about,
+body.bg-lavender .hero { background: var(--ascw-lilac-soft); }
+
 body.font-dyslexia {
   --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
   --letter-spacing: 0.02em;
 }
 
 body.reading-mode .site-header nav,
-body.reading-mode .hero-visual,
 body.reading-mode .pattern-strip,
 body.reading-mode .approach-pattern-l,
 body.reading-mode .approach-pattern-r,
 body.reading-mode .services,
 body.reading-mode .approach,
 body.reading-mode .testimonials,
-body.reading-mode .cta-band { display: none; }
+body.reading-mode #faq,
+body.reading-mode .cta-band,
+body.reading-mode .nav-cta,
+body.reading-mode .hero-actions,
+body.reading-mode .hero-meta,
+body.reading-mode .hv-pattern,
+body.reading-mode .about-stats,
+body.reading-mode .credentials,
+body.reading-mode .foot-grid,
+body.reading-mode .foot-bottom { display: none; }
 body.reading-mode main { max-width: 65ch; margin: 0 auto; padding: 2rem 1.5rem; }
+body.reading-mode .hv-stack { box-shadow: none; aspect-ratio: 1/1; grid-template-rows: 1fr; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -182,10 +197,10 @@ a:focus-visible, button:focus-visible {
 .eyebrow.on-pink   { color: var(--ascw-yellow); }
 .eyebrow.on-yellow { color: var(--ascw-pink-deep); }
 
-.h-display { font-weight: 300; letter-spacing: -0.025em; line-height: 1.02; margin: 0; font-size: clamp(48px, 7vw, 104px); }
-.h-section { font-weight: 300; letter-spacing: -0.02em;  line-height: 1.05; margin: 0; font-size: clamp(36px, 5vw, 64px); }
-.h-card    { font-weight: 300; letter-spacing: -0.015em; line-height: 1.08; margin: 0; font-size: 28px; }
-.lede { font-weight: 400; line-height: 1.5; font-size: 18px; max-width: 48ch; }
+.h-display { font-weight: 300; letter-spacing: -0.025em; line-height: 1.02; margin: 0; font-size: clamp(3rem, 7vw, 6.5rem); }
+.h-section { font-weight: 300; letter-spacing: -0.02em;  line-height: 1.05; margin: 0; font-size: clamp(2.25rem, 5vw, 4rem); }
+.h-card    { font-weight: 300; letter-spacing: -0.015em; line-height: 1.08; margin: 0; font-size: 1.75rem; }
+.lede { font-weight: 400; line-height: 1.5; font-size: 1.125rem; max-width: 48ch; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -762,6 +777,7 @@ a:focus-visible, button:focus-visible {
   justify-content: center;
 }
 .controls-toggle:hover { transform: scale(1.05); transition: transform 0.15s ease; }
+body.reduce-motion .controls-toggle:hover { transform: none; }
 
 .controls-panel {
   position: fixed;
