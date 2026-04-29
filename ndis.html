@@ -80,20 +80,37 @@
     body.show-both .audience-picker-wrap {
       display: none;
     }
-    .switch-audience {
+    .switch-audience-bar {
+      display: none;
+      background: var(--ascw-cream);
+      border-bottom: 1px solid var(--border-soft);
+      padding: 0.75rem 1.5rem;
       text-align: center;
-      padding: 1rem 0 2rem;
+      font-size: 0.875rem;
+      color: var(--fg-2);
     }
-    .switch-audience button {
+    body.show-participant .switch-audience-bar,
+    body.show-referrer .switch-audience-bar,
+    body.show-both .switch-audience-bar { display: block; }
+    .switch-audience-bar .current-view {
+      font-weight: 700;
+      color: var(--ascw-pink-deep);
+      margin-right: 0.5rem;
+    }
+    .switch-audience-bar button {
       background: transparent;
       border: 0;
       color: var(--ascw-pink-deep);
       font-size: 0.875rem;
       text-decoration: underline;
       cursor: pointer;
-      padding: 0.5rem 1rem;
+      padding: 0;
+      margin: 0 0.5rem;
     }
-    .switch-audience button:hover { color: var(--ascw-pink); }
+    .switch-audience-bar button:hover { color: var(--ascw-pink); }
+    body.show-participant .view-participant,
+    body.show-referrer .view-referrer,
+    body.show-both .view-both { display: none; }
   </style>
 </head>
 <body>
@@ -130,6 +147,16 @@
         </div>
       </div>
     </section>
+
+    <div class="switch-audience-bar">
+      <span class="current-view view-participant">Showing: <strong>For participants</strong></span>
+      <span class="current-view view-referrer">Showing: <strong>For referrers</strong></span>
+      <span class="current-view view-both">Showing: <strong>All info</strong></span>
+      <button data-switch-to="participant" class="view-participant">Switch to participant view</button>
+      <button data-switch-to="referrer" class="view-referrer">Switch to referrer view</button>
+      <button data-switch-to="both" class="view-both">Show both</button>
+      <button data-switch-to="reset">Reset</button>
+    </div>
 
     <div class="audience-picker-wrap">
       <div class="audience-picker">
@@ -260,10 +287,6 @@
 
       </div>
     </section>
-
-    <div class="switch-audience">
-      <button id="switch-audience-btn">Switch view</button>
-    </div>
 
     <section class="cta-band">
       <div class="wrap cta-inner">
@@ -419,17 +442,21 @@
       document.querySelectorAll('.audience-card').forEach(function(card) {
         card.addEventListener('click', function() {
           applyAudience(card.dataset.audience);
-          window.scrollTo({ top: card.closest('main').offsetTop, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       });
 
-      var switchBtn = document.getElementById('switch-audience-btn');
-      if (switchBtn) {
-        switchBtn.addEventListener('click', function() {
-          clearAudience();
+      document.querySelectorAll('.switch-audience-bar [data-switch-to]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var target = btn.dataset.switchTo;
+          if (target === 'reset') {
+            clearAudience();
+          } else {
+            applyAudience(target);
+          }
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-      }
+      });
     })();
   </script>
 </body>
