@@ -357,10 +357,24 @@
       </div>
     </div>
     <div class="control-group">
-      <div class="toggle-row">
-        <span>Dyslexia-friendly font</span>
-        <label class="switch"><input type="checkbox" id="toggle-dyslexia"><span class="slider"></span></label>
+      <label>Font</label>
+      <div class="font-options" role="group">
+        <button data-font="default" aria-pressed="true">
+          <span class="preview">Aa</span>
+          <span class="label">Default</span>
+        </button>
+        <button data-font="atkinson">
+          <span class="preview">Aa</span>
+          <span class="label">Atkinson</span>
+        </button>
+        <button data-font="opendyslexic">
+          <span class="preview">Aa</span>
+          <span class="label">Dyslexic</span>
+        </button>
       </div>
+    </div>
+
+    <div class="control-group">
       <div class="toggle-row">
         <span>High contrast</span>
         <label class="switch"><input type="checkbox" id="toggle-contrast"><span class="slider"></span></label>

@@ -23,8 +23,24 @@
        url('assets/fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
-/* Atkinson Hyperlegible from Google for the dyslexia-friendly toggle. */
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+/* Atkinson Hyperlegible and OpenDyslexic from Google for the dyslexia-friendly toggle. */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Open+Dyslexic:wght@400;700&display=swap');
+
+/* OpenDyslexic isn't on Google Fonts, fall back to a CDN-hosted version */
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/woff/OpenDyslexic-Bold.woff') format('woff');
+}
 
 /* ---------- Brand tokens ---------- */
 :root {
@@ -112,9 +128,13 @@ body.bg-sage .hero { background: var(--ascw-sage-soft); }
 body.bg-lavender .about,
 body.bg-lavender .hero { background: var(--ascw-lilac-soft); }
 
-body.font-dyslexia {
+body.font-atkinson {
   --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
   --letter-spacing: 0.02em;
+}
+body.font-opendyslexic {
+  --font-body: 'OpenDyslexic', system-ui, sans-serif;
+  --letter-spacing: 0;
 }
 
 body.reading-mode .site-header nav,
@@ -827,6 +847,37 @@ body.reduce-motion .controls-toggle:hover { transform: none; }
 }
 .controls-panel .bg-options button[aria-pressed="true"] {
   border-color: var(--ascw-pink);
+  font-weight: 700;
+}
+.controls-panel .font-options { display: flex; gap: 0.5rem; }
+.controls-panel .font-options button {
+  flex: 1;
+  border: 2px solid var(--border-soft);
+  background: white;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+}
+.controls-panel .font-options button .preview {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.controls-panel .font-options button .label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--fg-2);
+}
+.controls-panel .font-options button[data-font="default"] .preview { font-family: var(--font-sans); }
+.controls-panel .font-options button[data-font="atkinson"] .preview { font-family: 'Atkinson Hyperlegible', sans-serif; }
+.controls-panel .font-options button[data-font="opendyslexic"] .preview { font-family: 'OpenDyslexic', sans-serif; }
+.controls-panel .font-options button[aria-pressed="true"] {
+  border-color: var(--ascw-pink);
+}
+.controls-panel .font-options button[aria-pressed="true"] .label {
+  color: var(--ascw-pink-deep);
   font-weight: 700;
 }
 .controls-panel .reset-btn {

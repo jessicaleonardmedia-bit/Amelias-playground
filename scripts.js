@@ -37,18 +37,25 @@ function applyPrefs() {
       btn.dataset.bg === (prefs.bg || 'cream') ? 'true' : 'false');
   });
 
+  body.classList.remove('font-atkinson', 'font-opendyslexic');
+  if (prefs.font && prefs.font !== 'default') {
+    body.classList.add('font-' + prefs.font);
+  }
+  document.querySelectorAll('.font-options button').forEach(function(btn) {
+    btn.setAttribute('aria-pressed',
+      btn.dataset.font === (prefs.font || 'default') ? 'true' : 'false');
+  });
+
   var size = prefs.fontSize || 16;
   document.documentElement.style.setProperty('--font-size', size + 'px');
   var slider = document.getElementById('font-size-slider');
   if (slider) slider.value = size;
 
-  body.classList.toggle('font-dyslexia', !!prefs.dyslexia);
   body.classList.toggle('high-contrast', !!prefs.contrast);
   body.classList.toggle('reduce-motion',  !!prefs.motion);
   body.classList.toggle('reading-mode',   !!prefs.reading);
 
   var ids = {
-    'toggle-dyslexia': 'dyslexia',
     'toggle-contrast': 'contrast',
     'toggle-motion':   'motion',
     'toggle-reading':  'reading'
@@ -79,6 +86,14 @@ applyPrefs();
     });
   });
 
+  document.querySelectorAll('.font-options button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      prefs.font = btn.dataset.font;
+      applyPrefs();
+      savePrefs(prefs);
+    });
+  });
+
   function bindToggle(id, prefKey, className) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -88,7 +103,6 @@ applyPrefs();
       savePrefs(prefs);
     });
   }
-  bindToggle('toggle-dyslexia', 'dyslexia', 'font-dyslexia');
   bindToggle('toggle-contrast', 'contrast', 'high-contrast');
   bindToggle('toggle-motion',   'motion',   'reduce-motion');
   bindToggle('toggle-reading',  'reading',  'reading-mode');
