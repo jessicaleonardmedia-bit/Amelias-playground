@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMDR Therapy | Trauma-Focused Treatment Telehealth Australia | Amelia Slater</title>
+  <meta name="description" content="EMDR therapy with Amelia Slater. Evidence-based, trauma-focused treatment for PTSD, complex trauma, and distressing memories. Telehealth Australia-wide, in person from Numurkah, Victoria.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* EMDR-specific layout: storytelling page, longer-form */
+    .emdr-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .emdr-section {
+      margin-bottom: 3rem;
+    }
+    .emdr-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 0 0 1rem;
+    }
+    .emdr-section h2 em {
+      color: var(--ascw-pink-deep);
+      font-style: normal;
+    }
+    .emdr-section h3 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin: 1.5rem 0 0.6rem;
+    }
+    .emdr-section p {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      margin: 0 0 1rem;
+    }
+    .emdr-section ul, .emdr-section ol {
+      padding-left: 1.5rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+    .emdr-section li { margin-bottom: 0.5rem; }
+    .emdr-section .eyebrow {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      box-shadow: var(--shadow-1);
+      margin: 1.5rem 0;
+    }
+    .info-card h3 {
+      margin-top: 0;
+    }
+    .info-card.s-cream { background: var(--ascw-cream); }
+    .info-card.s-sage { background: rgba(143, 193, 156, 0.18); }
+
+    .recommendations-list {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
+      margin-top: 1rem;
+    }
+    @media (min-width: 600px) {
+      .recommendations-list { grid-template-columns: 1fr 1fr; }
+    }
+    .recommendations-list li {
+      list-style: none;
+      padding: 0.85rem 1.1rem;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--ascw-pink);
+      font-size: 0.9375rem;
+      margin: 0;
+    }
+    .recommendations-list { padding-left: 0; }
+
+    .session-stages {
+      counter-reset: stage;
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .session-stages > li {
+      counter-increment: stage;
+      padding: 1.25rem 1.5rem 1.25rem 4rem;
+      background: var(--bg-elevated);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.75rem;
+      position: relative;
+      box-shadow: var(--shadow-1);
+    }
+    .session-stages > li::before {
+      content: counter(stage);
+      position: absolute;
+      left: 1.25rem;
+      top: 1.25rem;
+      width: 2rem;
+      height: 2rem;
+      background: var(--ascw-pink);
+      color: var(--ascw-cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    .session-stages h4 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .session-stages p {
+      margin: 0;
+      font-size: 0.9375rem;
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="counselling.html">Counselling</a>
+        <a href="ndis.html">NDIS</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">EMDR therapy</span>
+          <h1 class="h-display">Process trauma <em>without retelling it</em>.</h1>
+          <p class="lede">EMDR (Eye Movement Desensitisation and Reprocessing) is an evidence-based therapy that helps your brain process difficult memories without requiring you to talk through them in detail. I offer EMDR via telehealth across Australia and in person from Numurkah, Victoria.</p>
+          <div class="hero-cta">
+            <a href="contact.html" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+            <a href="#what-is-emdr" class="btn btn-ghost">Learn more <span class="arr">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="emdr-content">
+
+        <div class="emdr-section" id="what-is-emdr">
+          <span class="eyebrow">What it is</span>
+          <h2>What is <em>EMDR</em>?</h2>
+          <p>EMDR (Eye Movement Desensitisation and Reprocessing) is a structured therapy that helps your brain reprocess difficult or traumatic memories. It uses bilateral stimulation, usually side-to-side eye movements, taps, or sounds, while you bring a memory to mind in a contained way.</p>
+          <p>You don't need to describe what happened in detail. EMDR works with the way the memory is held in your body and brain, not by retelling the story. For many people, this makes it more accessible than therapies that require extensive verbal recall.</p>
+          <p>EMDR is widely recognised and evidence-based for trauma and PTSD. It is recommended as a first-line treatment for PTSD and trauma by a range of leading bodies, including:</p>
+          <ul class="recommendations-list">
+            <li>World Health Organization</li>
+            <li>American Psychological Association</li>
+            <li>Phoenix Australia</li>
+            <li>International Society for Traumatic Stress Studies</li>
+          </ul>
+        </div>
+
+        <div class="emdr-section">
+          <span class="eyebrow">How it works</span>
+          <h2>How EMDR <em>works</em>.</h2>
+          <p>When something distressing happens, the memory can get stored in a way that keeps it feeling raw. The sights, sounds, body sensations, and beliefs about yourself stay tangled together, so that even years later, something small can trigger the whole package.</p>
+          <p>EMDR helps your brain do what it would do naturally during sleep: sort the memory, file it away, and take the charge out of it. The bilateral stimulation appears to support this reprocessing while you stay grounded in the present.</p>
+          <p>You stay aware and in control throughout. We move at your pace. If something becomes too intense, we pause and use grounding techniques before continuing.</p>
+        </div>
+
+        <div class="emdr-section">
+          <span class="eyebrow">Who it can help</span>
+          <h2>Who EMDR can <em>help</em>.</h2>
+          <p>EMDR is most well-established for trauma and PTSD, and is also well-suited for people experiencing anxiety, depression, or distressing memories where these are connected to past experiences or adverse life events.</p>
+          <p>Research suggests EMDR may achieve results in fewer sessions compared to some other approaches, and current evidence shows it is as effective as other leading trauma-focused therapies. It has also shown benefit for individuals with complex mental health disorders, a history of childhood abuse, and sexual assault survivors.</p>
+          <p>The technique is safe for adults and children, with protocols adapted to suit different developmental stages, and is flexible across a range of personal needs and backgrounds.</p>
+        </div>
+
+        <div class="emdr-section">
+          <span class="eyebrow">What sessions look like</span>
+          <h2>What a course of EMDR <em>looks like</em>.</h2>
+          <p>EMDR therapy follows a structured eight-phase model. Not every phase happens in every session, and some phases overlap or repeat. The pace is set by you and what feels manageable.</p>
+
+          <ol class="session-stages">
+            <li>
+              <h4>History taking</h4>
+              <p>We talk about what brings you to therapy and identify the experiences that feel most significant. No detailed retelling required.</p>
+            </li>
+            <li>
+              <h4>Preparation</h4>
+              <p>We build skills for managing distress between sessions and during reprocessing. This includes grounding, resourcing, and discussing what to expect.</p>
+            </li>
+            <li>
+              <h4>Assessment</h4>
+              <p>We identify the specific memory, image, belief, emotion, and body sensation we'll work with for that session.</p>
+            </li>
+            <li>
+              <h4>Desensitisation</h4>
+              <p>This is the bilateral stimulation phase. The memory's emotional intensity reduces as your brain reprocesses it.</p>
+            </li>
+            <li>
+              <h4>Installation</h4>
+              <p>A more adaptive belief about yourself is strengthened in connection with the memory.</p>
+            </li>
+            <li>
+              <h4>Body scan</h4>
+              <p>We check in with how the memory feels in your body now, and address any remaining physical tension.</p>
+            </li>
+            <li>
+              <h4>Closure</h4>
+              <p>Each session ends with grounding to make sure you leave feeling settled, regardless of where we got to.</p>
+            </li>
+            <li>
+              <h4>Reevaluation</h4>
+              <p>The next session begins by checking how the previous reprocessing has settled and identifying what to work on next.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="emdr-section">
+          <span class="eyebrow">Telehealth</span>
+          <h2>EMDR via <em>telehealth</em>.</h2>
+          <p>EMDR can be delivered effectively via telehealth, using a secure video platform. Bilateral stimulation can be done in several ways online, including following on-screen visual cues, self-tapping, or audio-based methods. We'll discuss what works best for you in the preparation phase.</p>
+          <p>Telehealth EMDR has the same eight-phase structure and the same grounding and safety practices as in-person sessions. It also makes EMDR accessible to people in regional and remote areas who may not have a trained EMDR therapist locally.</p>
+        </div>
+
+        <div class="emdr-section">
+          <span class="eyebrow">If you're considering EMDR</span>
+          <h2>What to know <em>before booking</em>.</h2>
+          <div class="info-card s-cream">
+            <h3>EMDR isn't always the right starting point</h3>
+            <p>For some people, particularly those with complex trauma, dissociation, or significant current life instability, we may spend more time in the preparation phase before reprocessing. Sometimes another approach is a better fit, or works better alongside EMDR. We'll figure that out together at intake.</p>
+          </div>
+          <div class="info-card s-sage">
+            <h3>It's not a quick fix</h3>
+            <p>EMDR can be effective in fewer sessions than some other approaches, but the number of sessions depends on what you're working with. Single-incident trauma may resolve in a small number of sessions. Complex or developmental trauma usually takes longer.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap cta-inner">
+        <span class="eyebrow">Get started</span>
+        <h2 class="h-section">Book a session or <em>make a referral</em>.</h2>
+        <p style="max-width: 48ch; margin: 1rem auto 1.5rem; color: var(--fg-2);">A free 15-minute discovery call lets us see whether EMDR with me is the right fit, before you commit to anything.</p>
+        <div class="actions">
+          <a href="contact.html" class="btn btn-primary">Book a session <span class="arr">&rarr;</span></a>
+          <a href="referral.html" class="btn btn-ghost">Make a referral <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+
+      <aside class="crisis-block" aria-label="Crisis support resources">
+        <h2>If you need support right now</h2>
+        <ul>
+          <li><a href="tel:000">Emergency: 000</a></li>
+          <li><a href="tel:131114">Lifeline: 13 11 14</a></li>
+          <li><a href="tel:139276">13YARN: 13 92 76</a></li>
+          <li><a href="tel:1800551800">Kids Helpline: 1800 55 1800</a></li>
+        </ul>
+      </aside>
+
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="assets/logos/logo-primary.svg" alt="Amelia Slater Community Wellbeing">
+          <p>Trauma-informed, neurodivergent-affirming social work and counselling. Based in Numurkah, Victoria. Telehealth available Australia-wide.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="counselling.html">Counselling</a></li>
+            <li><a href="emdr.html">EMDR</a></li>
+            <li><a href="ndis.html">NDIS support</a></li>
+            <li><a href="ndis.html">For referrers</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Practice</h5>
+          <ul>
+            <li><a href="about.html">About Amelia</a></li>
+            <li><a href="privacy.html">Privacy policy</a></li>
+            <li><a href="terms.html">Terms of service</a></li>
+            <li><a href="child-safety.html">Child safety statement</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:0422035204">0422 035 204</a></li>
+            <li><a href="mailto:amelia@ameliaslater.com">amelia@ameliaslater.com</a></li>
+            <li>PO Box 70<br>Numurkah VIC 3636</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <div class="ack">
+          Amelia Slater Community Wellbeing operates on Yorta Yorta Country. We acknowledge the Yorta Yorta people as the Traditional Custodians of these lands and pay our respects to Elders past and present.
+        </div>
+        <div>
+          ABN placeholder &middot; AASW member placeholder &middot; &copy; <span id="year"></span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="controls-toggle" aria-label="Open accessibility controls" aria-expanded="false" aria-controls="controls-panel" id="controls-toggle">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg>
+  </button>
+
+  <div class="controls-panel" id="controls-panel" role="dialog" aria-label="Accessibility and reading controls">
+    <h2>Reading controls</h2>
+    <div class="control-group">
+      <label for="font-size-slider">Text size</label>
+      <input type="range" id="font-size-slider" min="14" max="26" step="1" value="16">
+    </div>
+    <div class="control-group">
+      <label>Background colour</label>
+      <div class="bg-options" role="group">
+        <button data-bg="cream" aria-pressed="true">Cream</button>
+        <button data-bg="sage">Sage</button>
+        <button data-bg="lavender">Lavender</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Font</label>
+      <div class="font-options" role="group">
+        <button data-font="default" aria-pressed="true">
+          <span class="preview">Aa</span>
+          <span class="label">Default</span>
+        </button>
+        <button data-font="atkinson">
+          <span class="preview">Aa</span>
+          <span class="label">Atkinson</span>
+        </button>
+        <button data-font="opendyslexic">
+          <span class="preview">Aa</span>
+          <span class="label">Dyslexic</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="toggle-row">
+        <span>High contrast</span>
+        <label class="switch"><input type="checkbox" id="toggle-contrast"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reduce motion</span>
+        <label class="switch"><input type="checkbox" id="toggle-motion"><span class="slider"></span></label>
+      </div>
+      <div class="toggle-row">
+        <span>Reading mode</span>
+        <label class="switch"><input type="checkbox" id="toggle-reading"><span class="slider"></span></label>
+      </div>
+    </div>
+    <button class="reset-btn" id="reset-btn">Reset all to default</button>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
